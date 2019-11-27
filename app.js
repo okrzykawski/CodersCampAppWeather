@@ -15,7 +15,7 @@ weatherForm.addEventListener('submit', function(e){
 });
 
 const getDataWeather = city => {
-    const urlAPI = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${keyAPI}&units=metric`;
+    const urlAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${keyAPI}&units=metric`;
 
     fetch(urlAPI)
         .then(response =>{
