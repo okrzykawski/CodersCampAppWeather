@@ -5,20 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Aplikacja Pogodowa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <section><h1>Aplikacja Pogodowa</h1></section>
-        <section id="weatherForm">
-            <form>
-                <input type="text" id="city" placeholder="Wpisz miasto">
-                <input type="submit" value="Wyszukaj" id="cityBtn">
-            </form>
-        </section>
-        <section id="weather">
-            <h3></h3>
-            <p></p>
-            <div id="weatherData"> </div>
-        </section>
+    <section id="checkWeather">
+        <div class="container-fluid py-5 ">
+            <div class="container text-center py-5">
+                <h1 class="display-4 text-white py-3">Sprawdź Pogodę W Swoim Mieście</h1>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control rounded-0 p-4 text-center" id="city" placeholder="Wpisz Swoje Miasto">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg rounded-0 px-5 mt-3" id="cityBtn">Sprawdź</button>
+                </form>
+            </div>        
+        </div>
+    </section>
+    <section id="chooseCity"></section>
+    <section id="cities">
+        <div class="container">
+            <p class="text-center display-4 my-4"></p>
+            <div class="row">
+            </div>
+        </div>
+    </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="function.js"></script>
         <script src="app.js"></script>
 </body>
 </html>
