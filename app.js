@@ -14,30 +14,18 @@ weatherForm.addEventListener('submit', function(e){
     if(city){
         const node = document.querySelector("#chooseCity .container .row");
         submit = true;
+        dateWeather(weatherContent);
         getDataWeather(city, node);
     }
 });
-        
-
 
 dateWeather(weatherContent);
-
     
 cities.map(city => {
     submit = false;
-    // console.log(city);
+
     addDivContainer(weatherContent);
-    const node = weatherContent.querySelector(".col-3:last-child > div");
+    const node = weatherContent.querySelector(".city:last-child > div");
     createH(node, city);
     getDataWeather(city, node);
-    // console.log(city, dataWeather);
 });
-
-   
-
-
-
-
-
-
-

@@ -6,18 +6,13 @@ const getDataWeather = async (city, node) => {
             if(response.ok) return response.json();
             throw `Nie znaleniono miasta: ${city}`
          })
-        // .then(response => setDataWeather(city, node, response))
-        .catch(err => console.log(err));
+        .catch(err => alert(err));
 
-        // console.log(city, dw, node);
-        
         setDataWeather(city, dw, node);
-
-        // return dw;
 };
 
 const setDataWeather = (city, data, node) => {
-    // const weatherDataNode = headerWeatherContent(city, true);
+
     const weatherData = {
         temp: data.main.temp,
         pressure: data.main.pressure,
@@ -25,37 +20,27 @@ const setDataWeather = (city, data, node) => {
         sunrise: new Date(data.sys.sunrise * 1000).toLocaleTimeString(), 
         sunset: new Date(data.sys.sunset * 1000).toLocaleTimeString() 
     };
-    // console.log("setDataWeather, wetherdata",city, weatherData, node);
-    
-    // console.log(city, weatherData);
+
     if(submit){
+        const nodoH3 = node.previousElementSibling;
+
+        nodoH3.innerHTML = city;
+        nodoH3.classList.add("text-center")
+        nodoH3.classList.add("py-2")
+        nodoH3.style.borderBottom = "1px solid #fff";
         node.innerHTML="";
-        node.firstChildElement.textContent = city;
-        // node.parentNode.removeChild(node.firstChildElement);
-        // createH(node, city);
     }
     printDataWeather(weatherData, node);
 };
 
 const printDataWeather = (data, node) =>{
     // const charDegreesC = '&#176;' +"C";
-    // createP(node, `Temperatura: ${data.temp} `+ charDegreesC);
     createP(node, "Temperatura: ", data.temp, " C");
     createP(node, "Ciśnienie: ", data.pressure, " hPa");
     createP(node, "Siła wiatru: ", data.wind, " m/s");
     createP(node, "Wschód: ", data.sunrise, "");
     createP(node, "Zachód: ", data.sunset, "");
 }
-
-// const headerWeatherContent = (print, flaga) =>{
-//     const node = weatherContent.firstElementChild;
-//     if(flaga) {node.textContent = `Pogoda dla miasta: ${print}`;}
-//     else {node.textContent = print;}
-
-//     // const weatherDataNode = document.getElementById("weatherData");
-//     // weatherDataNode.innerHTML = "";
-//     // return weatherDataNode;
-// }
 
 const createP = (elNode, text, x, addText) =>{
     const p = document.createElement('p');
@@ -65,9 +50,11 @@ const createP = (elNode, text, x, addText) =>{
 
     strong.classList.add("mr-2")
     if(submit){
-        p.classList.add("col");
-        p.classList.add("my-3");
-        p.classList.add("mx-auto");
+        p.classList.add("col-12");
+        p.classList.add("col-sm-6");
+        p.classList.add("col-md");
+        elNode.parentNode.classList.add("text-white");
+        elNode.parentNode.style.backgroundColor = "#44f";
     }
 
     strong.appendChild(strongText);
@@ -82,13 +69,9 @@ const createH = (elNode, textNode) =>{
     h.classList.add("text-center")
     h.classList.add("pb-1")
     h.style.borderBottom = "1px solid #44f";
-    // if(submit) {
-    //     h.classList.add("col");
-    //     h.style.borderBottom = "none";
-    // }
-    // h.style.borderBottomStyle = "solid";
-    // h.style.borderBottomColor = "red";
+
     h.appendChild(hText);
+    
     if(submit){
         elNode.parentNode.insertBefore(h, elNode);
     }else{
@@ -105,7 +88,10 @@ const dateWeather = () =>{
 const addDivContainer = node =>{
     const el = document.createElement("div");
     const el2 = document.createElement("div");
-    el.classList.add("col-3");
+    el.classList.add("city");
+    el.classList.add("col-12");
+    el.classList.add("col-sm-6");
+    el.classList.add("col-lg-3");
     el.classList.add("my-4");
 
     el.appendChild(el2);

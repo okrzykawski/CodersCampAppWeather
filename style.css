@@ -8,7 +8,6 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: 50%;
-    /* height: 50vh; */
 }
 
 #city{
@@ -22,6 +21,3 @@ body{
 #cityBtn:hover{
     background-color: #22f;
 }
-/* #cities .container{
-    border-top: 1px solid #44f;
-} */
